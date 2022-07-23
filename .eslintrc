@@ -13,7 +13,6 @@
     "plugin:react/jsx-runtime",
     "prettier"
   ],
-  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -24,7 +23,9 @@
   "plugins": ["react", "jsx-a11y", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "react/prop-types": 0,
+    "no-unused-vars": "warn"
   }
 }
 

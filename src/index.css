@@ -41,6 +41,10 @@ input {
   display: block;
 }
 
+ul {
+  list-style: none;
+}
+
 #root {
   min-height: 100vh;
   margin: 0 auto;

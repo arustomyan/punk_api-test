@@ -1,0 +1,20 @@
+.component {
+  max-width: 1278px;
+  text-align: center;
+  margin: auto;
+}
+
+.container {
+  display: grid;
+  max-width: 1278px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+}
+
+@media screen and (max-width: 1318px) {
+  .component {
+    padding: 0 20px;
+  }
+}
