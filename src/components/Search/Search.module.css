@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  max-width: 1278px;
+  padding-top: 20px;
+  margin: auto auto 50px;
+}
+
+.search {
+  width: 480px;
+  height: 56px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 10px;
+  background-image: url(../../Images/searchDark.svg);
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  outline-style: none;
+  border: none;
+  background-color: #ffffff;
+  padding-left: 45px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.search::placeholder {
+  color: #848484;
+}
