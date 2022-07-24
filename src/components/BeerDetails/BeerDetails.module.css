@@ -1,0 +1,75 @@
+.component {
+  max-width: 1278px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cover {
+  display: flex;
+  align-items: center;
+  min-width: 400px;
+  width: 45%;
+  padding: 50px;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  max-width: 250px;
+  height: fit-content;
+  margin: auto;
+}
+
+.image {
+  object-fit: contain;
+  max-height: 500px;
+  flex: auto;
+}
+
+.details {
+  flex: auto;
+  height: 100%;
+  max-width: 55%;
+  padding: 30px;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.food_pairing h3 {
+  font-weight: 600;
+}
+
+.food_pairing ul {
+  padding-left: 30px;
+  list-style: disc;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .cover {
+    width: 100%;
+  }
+
+  .details {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
