@@ -18,7 +18,7 @@ function BeerList() {
       {!beers.length ? (
         <Loader />
       ) : (
-        <ul className={styles.container}>
+        <ul className={styles.container} title="beer list">
           {beers.map((item) => (
             <BeerCard item={item} key={item.id} />
           ))}
