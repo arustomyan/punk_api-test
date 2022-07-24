@@ -1,26 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./BeerCard.module.css";
 import { limitStr } from "../../../helpers";
 
 function BeerCard({ item }) {
-  const flag = false;
-
   return (
     <li className={style.component}>
-      <div className={style.imageWrapper}>
-        {flag ? (
-          <p>cover missing</p>
-        ) : (
-          <img
-            className={style.image}
-            src={item.image_url}
-            alt={`Cover of ${item.name}`}
-          />
-        )}
-      </div>
+      <Link to={`/beer/${item.id}`} className={style.link}>
+        <div className={style.imageWrapper}>
+          {!item.image_url ? (
+            <p>cover missing</p>
+          ) : (
+            <img
+              className={style.image}
+              src={item.image_url}
+              alt={`Cover of ${item.name}`}
+            />
+          )}
+        </div>
 
-      <p className={style.name}>{item.name}</p>
-      <p className={style.description}>{limitStr(item.description)}</p>
+        <p className={style.name}>{item.name}</p>
+        <p className={style.description}>{limitStr(item.description)}</p>
+      </Link>
     </li>
   );
 }

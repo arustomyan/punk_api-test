@@ -1,14 +1,20 @@
 .component {
-  background-color: #f3f2f1;
-  border-radius: 10px;
+  height: 100%;
+  max-width: 360px;
   min-width: 260px;
-  max-width: 400px;
-  width: content-box;
-  padding: 30px 15px 30px;
-  transition: transform 0.3s;
 }
 
-.component:hover {
+.link {
+  display: block;
+  padding: 30px 15px 30px;
+  transition: transform 0.3s;
+  background-color: #f3f2f1;
+  border-radius: 10px;
+  height: inherit;
+}
+
+.link:hover,
+.link:focus {
   transform: scale(1.05);
   box-shadow: 0 6px 5px rgba(0, 0, 0, 0.24), 0 9px 18px rgba(0, 0, 0, 0.18);
   cursor: pointer;
