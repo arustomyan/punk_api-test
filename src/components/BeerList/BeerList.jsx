@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BeerCard } from "./BeerCard";
 import styles from "./BeerList.module.css";
 import Loader from "../Loader/Loader";
-import getBeers from "../../api/PunkApi";
+import { getBeers } from "../../api/PunkApi";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);

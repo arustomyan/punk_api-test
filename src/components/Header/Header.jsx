@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
-        <a href="/5115" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           Beers
-        </a>
+        </Link>
       </div>
     </div>
   );

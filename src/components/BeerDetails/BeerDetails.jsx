@@ -1,35 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getBeer } from "../../api/PunkApi";
+import { useFetching } from "../../hooks/useFetching";
+import Loader from "../Loader/Loader";
 import styles from "./BeerDetails.module.css";
 
-function BeerDetails({ item }) {
-  const flag = false;
+function BeerDetails() {
+  const [beer, setBeer] = useState({});
+  const params = useParams();
+
+  const [fetchBeer, isLoading] = useFetching(async (id) => {
+    await getBeer(id)
+      .then((res) => setBeer(res[0]))
+      .catch((err) => console.log(err));
+  });
+
+  useEffect(() => {
+    fetchBeer(params.id);
+  }, []);
+
   return (
     <div className={styles.component}>
-      {flag ? (
-        <p>Loading...</p>
+      {isLoading ? (
+        <Loader />
       ) : (
         <>
           <div className={styles.cover}>
             <div className={styles.imageWrapper}>
               <img
                 className={styles.image}
-                src={item.image_url}
-                alt={`Cover of ${item.name}`}
+                src={beer.image_url}
+                alt={`Cover of ${beer.name}`}
               />
             </div>
           </div>
           <div className={styles.details}>
-            <p className={styles.name}>{item.name}</p>
-            <p className={styles.tagline}>{item.tagline}</p>
-            <span className={styles.food_pairing}>
-              <h3>Food Pairings:</h3>
-              <ul>
-                {item.food_pairing.map((food) => (
-                  <li key={food}>{food}</li>
-                ))}
-              </ul>
-            </span>
-            <p className={styles.description}>{item.description}</p>
+            <p className={styles.name}>{beer.name}</p>
+            <p className={styles.tagline}>{beer.tagline}</p>
+            <p className={styles.description}>{beer.description}</p>
           </div>
         </>
       )}
