@@ -5,7 +5,7 @@ import { limitStr } from "../../../helpers";
 
 function BeerCard({ item }) {
   return (
-    <li className={style.component}>
+    <li className={style.component} title={item.name}>
       <Link to={`/beer/${item.id}`} className={style.link}>
         <div className={style.imageWrapper}>
           {!item.image_url ? (

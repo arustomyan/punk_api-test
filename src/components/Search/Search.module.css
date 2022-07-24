@@ -1,15 +1,20 @@
 .container {
   display: flex;
   max-width: 1278px;
-  padding-top: 20px;
-  margin: auto auto 20px;
+  padding: 20px 0;
+  margin: auto auto;
+}
+
+.form {
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .search {
   width: 480px;
   height: 56px;
-  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.0532439);
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   background-image: url(../../Images/searchDark.svg);
   background-position: 15px center;
   background-repeat: no-repeat;
@@ -23,4 +28,23 @@
 
 .search::placeholder {
   color: #848484;
+}
+
+.button {
+  display: inline;
+  background-color: inherit;
+  height: 100%;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(235, 235, 235, 0.65);
+}
+
+.form:focus-within {
+  box-shadow: 0 2px 9px rgba(116, 116, 116, 0.58);
 }

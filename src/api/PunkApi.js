@@ -10,4 +10,9 @@ const getBeer = async (id) =>
     .then((response) => response.json())
     .catch((error) => console.log("error: ", error));
 
-export { getBeers, getBeer };
+const searchBeer = async (query) =>
+  fetch(`${URL}?beer_name=${query}`)
+    .then((response) => response.json())
+    .catch((error) => console.log("error: ", error));
+
+export { getBeers, getBeer, searchBeer };
