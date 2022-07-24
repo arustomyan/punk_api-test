@@ -7,13 +7,15 @@ import styles from "./BeerDetails.module.css";
 
 function BeerDetails() {
   const [beer, setBeer] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   const params = useParams();
 
-  const [fetchBeer, isLoading] = useFetching(async (id) => {
+  const [fetchBeer] = useFetching(async (id) => {
     await getBeer(id)
       .then((res) => setBeer(res[0]))
       .catch((err) => console.log(err));
-  });
+  }, setIsLoading);
 
   useEffect(() => {
     fetchBeer(params.id);

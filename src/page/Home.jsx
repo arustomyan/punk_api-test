@@ -6,12 +6,13 @@ import { useFetching } from "../hooks/useFetching";
 
 function Home() {
   const [beers, setBeers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [fetchSearchBeer, isLoading] = useFetching(async (query) => {
+  const [fetchSearchBeer] = useFetching(async (query) => {
     await searchBeer(query)
       .then((res) => setBeers(res))
       .catch((err) => console.log(err));
-  });
+  }, setIsLoading);
 
   useEffect(() => {
     (async () => {
