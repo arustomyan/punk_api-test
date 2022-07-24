@@ -1,10 +1,7 @@
 import React from "react";
 import styles from "./BeerDetails.module.css";
-import items from "../../fakeData.json";
 
-const item = items[8];
-
-function BeerDetails() {
+function BeerDetails({ item }) {
   const flag = false;
   return (
     <div className={styles.component}>

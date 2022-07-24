@@ -1,11 +1,13 @@
 import { Header } from "./components/Header";
-import { BeerDetails } from "./components/BeerDetails";
+import { Search } from "./components/Search";
+import { BeerList } from "./components/BeerList";
 
 function App() {
   return (
     <>
       <Header />
-      <BeerDetails />
+      <Search />
+      <BeerList />
     </>
   );
 }
