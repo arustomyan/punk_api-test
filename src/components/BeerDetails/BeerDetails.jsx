@@ -21,6 +21,7 @@ function BeerDetails() {
     fetchBeer(params.id);
   }, []);
 
+  console.log(beer);
   return (
     <div className={styles.component}>
       {isLoading ? (
@@ -39,6 +40,19 @@ function BeerDetails() {
           <div className={styles.details}>
             <p className={styles.name}>{beer.name}</p>
             <p className={styles.tagline}>{beer.tagline}</p>
+            <div className={styles.specifications}>
+              <p className={styles.abv}>ABV: {beer.abv}</p>
+              <p className={styles.abv}>IBU: {beer.ibu}</p>
+              <p className={styles.ebc}>EBC: {beer.ebc}</p>
+            </div>
+
+            <div className={styles.food_pairing}>
+              <h3>Food Pairings:</h3>
+              <ul>
+                {beer.food_pairing &&
+                  beer.food_pairing.map((food) => <li key={food}>{food}</li>)}
+              </ul>
+            </div>
             <p className={styles.description}>{beer.description}</p>
           </div>
         </>
