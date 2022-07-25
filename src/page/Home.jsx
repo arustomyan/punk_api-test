@@ -7,23 +7,44 @@ import { useFetching } from "../hooks/useFetching";
 function Home() {
   const [beers, setBeers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState("");
 
-  const [fetchSearchBeer] = useFetching(async (query) => {
-    await searchBeer(query)
-      .then((res) => setBeers(res))
+  const [fetchSearchBeer] = useFetching(async (input) => {
+    setQuery(input);
+    await searchBeer(input, page)
+      .then((res) => {
+        console.log(res);
+        setBeers([...beers, ...res]);
+      })
+      .catch((err) => console.log(err));
+  }, setIsLoading);
+
+  const [fetchBeers] = useFetching(async () => {
+    await getBeers()
+      .then((res) => setBeers([...beers, ...res]))
       .catch((err) => console.log(err));
   }, setIsLoading);
 
   useEffect(() => {
-    (async () => {
-      await getBeers().then((res) => setBeers(res));
-    })();
+    fetchBeers();
   }, []);
+
+  const loadMore = async (e) => {
+    e.preventDefault();
+    setPage((prev) => prev + 1);
+
+    if (!query) {
+      await fetchBeers();
+    } else {
+      fetchSearchBeer(query);
+    }
+  };
 
   return (
     <>
       <Search callback={fetchSearchBeer} />
-      <BeerList beers={beers} />
+      <BeerList beers={beers} isLoading={isLoading} loadMore={loadMore} />
     </>
   );
 }

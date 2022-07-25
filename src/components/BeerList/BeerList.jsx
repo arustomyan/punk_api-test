@@ -2,10 +2,10 @@ import { BeerCard } from "./BeerCard";
 import styles from "./BeerList.module.css";
 import Loader from "../Loader/Loader";
 
-function BeerList({ beers }) {
+function BeerList({ isLoading, beers, loadMore }) {
   return (
     <div className={styles.component}>
-      {!beers.length ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <ul className={styles.container} title="beer list">
@@ -14,6 +14,9 @@ function BeerList({ beers }) {
           ))}
         </ul>
       )}
+      <button className={styles.loadMore} onClick={loadMore} type="button">
+        Load more
+      </button>
     </div>
   );
 }
