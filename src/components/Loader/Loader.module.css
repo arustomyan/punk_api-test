@@ -35,9 +35,9 @@
 .component {
   width: 200px;
   height: 200px;
-  display: inline-block;
   overflow: hidden;
   background: #ffffff;
+  margin: 50px auto auto;
 }
 .loader {
   width: 100%;
