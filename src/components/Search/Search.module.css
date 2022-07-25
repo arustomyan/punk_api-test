@@ -39,6 +39,7 @@
   padding: 5px 40px;
   font-size: 16px;
   cursor: pointer;
+  color: #606060;
 }
 
 .button:hover {
@@ -52,4 +53,15 @@
 
 .form:focus-within {
   box-shadow: 0 2px 9px rgba(116, 116, 116, 0.58);
+}
+
+@media screen and (max-width: 1318px) {
+  .container {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 668px) {
+  .search {
+    width: calc(100vw - 188px);
+  }
 }
