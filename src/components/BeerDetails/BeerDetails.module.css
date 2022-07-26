@@ -72,6 +72,10 @@
     width: 100%;
   }
 
+  .image {
+    height: 50vw;
+  }
+
   .details {
     max-width: 100%;
     padding: 20px;
