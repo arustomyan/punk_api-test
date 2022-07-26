@@ -5,18 +5,21 @@ import Loader from "../Loader/Loader";
 function BeerList({ isLoading, beers, loadMore }) {
   return (
     <div className={styles.component}>
+      <ul className={styles.container} title="beer list">
+        {beers.map((item) => (
+          <BeerCard item={item} key={item.id} />
+        ))}
+      </ul>
       {isLoading ? (
         <Loader />
       ) : (
-        <ul className={styles.container} title="beer list">
-          {beers.map((item) => (
-            <BeerCard item={item} key={item.id} />
-          ))}
-        </ul>
+        <>
+          {/* eslint-disable-next-line react/button-has-type*/}
+          <button className={styles.loadMore} onClick={loadMore}>
+            Load more
+          </button>
+        </>
       )}
-      <button className={styles.loadMore} onClick={loadMore} type="button">
-        Load more
-      </button>
     </div>
   );
 }

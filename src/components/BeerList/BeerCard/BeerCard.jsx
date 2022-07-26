@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./BeerCard.module.css";
 import { limitStr } from "../../../helpers";
+import style from "./BeerCard.module.css";
 
-// eslint-disable-next-line
-const BeerCard = React.memo(function BeerCard({ item }) {
+function BeerCard({ item }) {
   return (
     <li className={style.component} title={item.name}>
       <Link to={`/beer/${item.id}`} className={style.link}>
@@ -25,6 +24,6 @@ const BeerCard = React.memo(function BeerCard({ item }) {
       </Link>
     </li>
   );
-});
+}
 
 export default BeerCard;

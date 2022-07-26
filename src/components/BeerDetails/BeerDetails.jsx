@@ -21,7 +21,6 @@ function BeerDetails() {
     fetchBeer(params.id);
   }, []);
 
-  console.log(beer);
   return (
     <div className={styles.component}>
       {isLoading ? (
