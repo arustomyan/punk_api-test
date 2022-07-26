@@ -6,13 +6,13 @@ function Search({ callback, setPage, setBeers, setIsLoadingMore }) {
   const [input, setInput] = useState("");
 
   const handleSubmit = async (e) => {
-    setBeers([]);
     e.preventDefault();
-    setPage(1);
-    setIsLoadingMore(true);
     const filterInput = replaceSpace(input);
 
     if (filterInput) {
+      setBeers([]);
+      setPage(1);
+      setIsLoadingMore(true);
       callback(filterInput);
     }
     setInput("");
