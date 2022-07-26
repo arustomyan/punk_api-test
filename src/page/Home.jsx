@@ -14,14 +14,13 @@ function Home() {
     setQuery(input);
     await searchBeer(input, page)
       .then((res) => {
-        console.log(res);
         setBeers([...beers, ...res]);
       })
       .catch((err) => console.log(err));
   }, setIsLoading);
 
   const [fetchBeers] = useFetching(async () => {
-    await getBeers()
+    await getBeers(page)
       .then((res) => setBeers([...beers, ...res]))
       .catch((err) => console.log(err));
   }, setIsLoading);
@@ -37,7 +36,7 @@ function Home() {
     if (!query) {
       await fetchBeers();
     } else {
-      fetchSearchBeer(query);
+      await fetchSearchBeer(query);
     }
   };
 
