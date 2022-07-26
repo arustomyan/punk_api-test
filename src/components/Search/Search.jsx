@@ -24,7 +24,6 @@ function Search({ callback, setPage, setBeers, setIsLoadingMore }) {
         <input
           className={styles.search}
           value={input}
-          style={{ display: "inline" }}
           type="text"
           name="Search for a beers…"
           placeholder="Search for a beers…"
