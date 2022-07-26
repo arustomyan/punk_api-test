@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import styles from "./Search.module.css";
 import replaceSpace from "../../helpers/replaceSpace";
 
-function Search({ callback }) {
-  const [query, setQuery] = useState("");
+function Search({ callback, setPage, setBeers, setIsLoadingMore }) {
+  const [input, setInput] = useState("");
 
   const handleSubmit = async (e) => {
+    setBeers([]);
     e.preventDefault();
-    const filterQuery = replaceSpace(query);
-    if (filterQuery) {
-      callback(filterQuery);
+    setPage(1);
+    setIsLoadingMore(true);
+    const filterInput = replaceSpace(input);
+
+    if (filterInput) {
+      callback(filterInput);
     }
-    setQuery("");
+    setInput("");
   };
 
   return (
@@ -19,13 +23,13 @@ function Search({ callback }) {
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           className={styles.search}
-          value={query}
+          value={input}
           style={{ display: "inline" }}
           type="text"
           name="Search for a beers…"
           placeholder="Search for a beers…"
           onChange={(e) => {
-            setQuery(e.target.value);
+            setInput(e.target.value);
           }}
         />
         <button type="submit" className={styles.button}>

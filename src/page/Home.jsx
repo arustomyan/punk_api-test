@@ -9,19 +9,24 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [isLoadingMore, setIsLoadingMore] = useState(true);
 
   const [fetchSearchBeer] = useFetching(async (input) => {
     setQuery(input);
     await searchBeer(input, page)
       .then((res) => {
-        setBeers([...beers, ...res]);
+        if (res.length < 25) setIsLoadingMore(false);
+        setBeers((prevState) => [...prevState, ...res]);
       })
       .catch((err) => console.log(err));
   }, setIsLoading);
 
   const [fetchBeers] = useFetching(async () => {
     await getBeers(page)
-      .then((res) => setBeers([...beers, ...res]))
+      .then((res) => {
+        if (res.length < 25) setIsLoadingMore(false);
+        setBeers([...beers, ...res]);
+      })
       .catch((err) => console.log(err));
   }, setIsLoading);
 
@@ -42,8 +47,18 @@ function Home() {
 
   return (
     <>
-      <Search callback={fetchSearchBeer} />
-      <BeerList beers={beers} isLoading={isLoading} loadMore={loadMore} />
+      <Search
+        callback={fetchSearchBeer}
+        setPage={setPage}
+        setBeers={setBeers}
+        setIsLoadingMore={setIsLoadingMore}
+      />
+      <BeerList
+        beers={beers}
+        isLoading={isLoading}
+        loadMore={loadMore}
+        isLoadingMore={isLoadingMore}
+      />
     </>
   );
 }

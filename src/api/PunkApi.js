@@ -11,7 +11,7 @@ const getBeer = async (id) =>
     .catch((error) => console.log("error: ", error));
 
 const searchBeer = async (query, page) =>
-  fetch(`${URL}?beer_name=${query}?page=${page}`)
+  fetch(`${URL}?beer_name=${query}&page=${page}`)
     .then((response) => response.json())
     .catch((error) => console.log("error: ", error));
 

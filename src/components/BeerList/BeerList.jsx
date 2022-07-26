@@ -2,7 +2,7 @@ import { BeerCard } from "./BeerCard";
 import styles from "./BeerList.module.css";
 import Loader from "../Loader/Loader";
 
-function BeerList({ isLoading, beers, loadMore }) {
+function BeerList({ isLoading, beers, loadMore, isLoadingMore }) {
   return (
     <div className={styles.component}>
       <ul className={styles.container} title="beer list">
@@ -13,12 +13,17 @@ function BeerList({ isLoading, beers, loadMore }) {
       {isLoading ? (
         <Loader />
       ) : (
-        <>
-          {/* eslint-disable-next-line react/button-has-type*/}
-          <button className={styles.loadMore} onClick={loadMore}>
-            Load more
-          </button>
-        </>
+        <div>
+          {isLoadingMore && (
+            <button
+              className={styles.loadMore}
+              onClick={loadMore}
+              type="button"
+            >
+              Load more
+            </button>
+          )}
+        </div>
       )}
     </div>
   );
