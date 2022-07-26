@@ -1,7 +1,7 @@
 .component {
   max-width: 1278px;
   text-align: center;
-  margin: auto;
+  margin: auto auto 20px;
 }
 
 .container {
@@ -17,7 +17,6 @@
   background-color: inherit;
   font-weight: 500;
   font-size: 16px;
-  padding-top: 20px;
   margin-bottom: 20px;
   cursor: pointer;
 }
