@@ -39,7 +39,7 @@
   display: grid;
   max-width: 1278px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  justify-content: space-between;
+  justify-items: center;
   gap: 40px;
   text-align: left;
 }
