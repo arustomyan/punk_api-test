@@ -58,7 +58,6 @@ function Home() {
       <Search
         setSearchParams={setSearchParams}
         setPage={setPage}
-        setBeers={setBeers}
         setIsLoadingMore={setIsLoadingMore}
       />
       <BeerList

@@ -19,7 +19,7 @@ function BeerCard({ item }) {
           )}
         </div>
 
-        <p className={style.name}>{item.name}</p>
+        <h2 className={style.name}>{item.name}</h2>
         <p className={style.description}>{limitStr(item.description)}</p>
       </Link>
     </li>

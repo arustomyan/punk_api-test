@@ -18,6 +18,10 @@
   font-size: 32px;
 }
 
+.logo:focus-visible {
+  border: 1px solid #848484;
+}
+
 @media screen and (max-width: 1318px) {
   .navBar {
     padding: 0 20px;

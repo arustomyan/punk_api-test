@@ -7,7 +7,7 @@ function Header() {
     <header className={styles.container}>
       <div className={styles.navBar}>
         <Link to="/" className={styles.logo}>
-          Beers.
+          <h1>Beers.</h1>
         </Link>
       </div>
     </header>
