@@ -4,13 +4,13 @@ import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <div className={styles.navBar}>
         <Link to="/" className={styles.logo}>
           Beers.
         </Link>
       </div>
-    </div>
+    </header>
   );
 }
 
