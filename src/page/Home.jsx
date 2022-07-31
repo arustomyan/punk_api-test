@@ -39,7 +39,7 @@ function Home() {
     } else {
       fetchSearchBeer(query);
     }
-  }, []);
+  }, [query]);
 
   const loadMore = async (e) => {
     e.preventDefault();
