@@ -13,7 +13,10 @@ function BeerDetails() {
 
   const [fetchBeer] = useFetching(async (id) => {
     await getBeer(id)
-      .then((res) => setBeer(res[0]))
+      .then((res) => {
+        setBeer(res[0]);
+        document.title = res[0].name;
+      })
       .catch((err) => console.log(err));
   }, setIsLoading);
 

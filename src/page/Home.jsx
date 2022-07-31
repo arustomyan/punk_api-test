@@ -36,8 +36,10 @@ function Home() {
   useEffect(() => {
     setBeers([]);
     if (!query) {
+      document.title = `Beers.`;
       fetchBeers();
     } else {
+      document.title = `Search for beer on request "${query}"`;
       fetchSearchBeer(query);
     }
   }, [query]);
