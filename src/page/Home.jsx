@@ -10,7 +10,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [isLoadingMore, setIsLoadingMore] = useState(true);
-  const [searchParams, setSearchParams] = useSearchParams("beers");
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get("beers") || "";
 
@@ -61,6 +61,7 @@ function Home() {
         setIsLoadingMore={setIsLoadingMore}
       />
       <BeerList
+        query={query}
         beers={beers}
         isLoading={isLoading}
         loadMore={loadMore}

@@ -4,6 +4,17 @@
   margin: auto auto 20px;
 }
 
+.resultsInfo {
+  margin-bottom: 20px;
+}
+
+.query {
+  padding: 10px 5px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline;
+}
+
 .container {
   display: grid;
   max-width: 1278px;
@@ -24,6 +35,17 @@
 .loadMore:hover,
 .loadMore:focus {
   text-decoration: underline;
+}
+
+.delete {
+  display: inline;
+  width: 10px;
+}
+
+.delete line {
+  display: inline;
+  stroke: red;
+  stroke-width: 20px;
 }
 
 @media screen and (max-width: 1318px) {
