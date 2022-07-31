@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Search.module.css";
 import replaceSpace from "../../helpers/replaceSpace";
 
-function Search({ callback, setPage, setBeers, setIsLoadingMore }) {
+function Search({ setSearchParams, setPage, setBeers, setIsLoadingMore }) {
   const [input, setInput] = useState("");
 
   const handleSubmit = async (e) => {
@@ -13,7 +13,7 @@ function Search({ callback, setPage, setBeers, setIsLoadingMore }) {
       setBeers([]);
       setPage(1);
       setIsLoadingMore(true);
-      callback(filterInput);
+      setSearchParams({ beers: filterInput });
     }
     setInput("");
   };

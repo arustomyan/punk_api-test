@@ -28,12 +28,13 @@ function Home() {
     await getBeers(page)
       .then((res) => {
         if (res.length < 25) setIsLoadingMore(false);
-        setBeers([...beers, ...res]);
+        setBeers((prevState) => [...prevState, ...res]);
       })
       .catch((err) => console.log(err));
   }, setIsLoading);
 
   useEffect(() => {
+    setBeers([]);
     if (!query) {
       fetchBeers();
     } else {
@@ -55,7 +56,7 @@ function Home() {
   return (
     <>
       <Search
-        callback={fetchSearchBeer}
+        setSearchParams={setSearchParams}
         setPage={setPage}
         setBeers={setBeers}
         setIsLoadingMore={setIsLoadingMore}
