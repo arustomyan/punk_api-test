@@ -8,10 +8,16 @@ function BeerList({ isLoading, beers, loadMore, isLoadingMore, query }) {
     <div className={styles.component}>
       {query && (
         <div className={styles.resultsInfo}>
-          <h2 className={styles.query}>
-            Search results for &quot;{query}&quot;
-          </h2>
-          <Link to="/">
+          {!beers.length ? (
+            <h2 className={styles.query}>
+              Nothing was found for &quot;{query}&quot;
+            </h2>
+          ) : (
+            <h2 className={styles.query}>
+              Search results for &quot;{query}&quot;
+            </h2>
+          )}
+          <Link to="/" className={styles.deleteButton}>
             <svg
               viewBox="0 0 100 100"
               className={styles.delete}
