@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Search } from "../components/Search";
 import { BeerList } from "../components/BeerList";
 import { getBeers, searchBeer } from "../api/PunkApi";
@@ -8,11 +9,13 @@ function Home() {
   const [beers, setBeers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
   const [isLoadingMore, setIsLoadingMore] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams("beers");
+
+  const query = searchParams.get("beers") || "";
 
   const [fetchSearchBeer] = useFetching(async (input) => {
-    setQuery(input);
+    setSearchParams({ beers: input });
     await searchBeer(input, page)
       .then((res) => {
         if (res.length < 25) setIsLoadingMore(false);
@@ -31,7 +34,11 @@ function Home() {
   }, setIsLoading);
 
   useEffect(() => {
-    fetchBeers();
+    if (!query) {
+      fetchBeers();
+    } else {
+      fetchSearchBeer(query);
+    }
   }, []);
 
   const loadMore = async (e) => {
