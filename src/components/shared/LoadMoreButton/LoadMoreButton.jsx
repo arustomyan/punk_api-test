@@ -4,7 +4,7 @@ import styles from "./LoadMoreButton.module.css";
 function LoadMoreButton({ visible, loadMore }) {
   return (
     <div>
-      {!visible && (
+      {visible && (
         <button className={styles.loadMore} onClick={loadMore} type="button">
           Load more
         </button>
