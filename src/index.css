@@ -22,6 +22,10 @@ img {
   display: block;
 }
 
+button {
+  -webkit-appearance: none;
+}
+
 a,
 a:visited {
   color: inherit;
