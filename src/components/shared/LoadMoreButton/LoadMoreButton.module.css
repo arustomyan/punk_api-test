@@ -1,0 +1,12 @@
+.loadMore {
+  background-color: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.loadMore:hover,
+.loadMore:focus {
+  text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+.resultsInfo {
+  margin-bottom: 20px;
+}
+
+.info {
+  padding: 10px 5px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline;
+}
+
+.deleteButton {
+  padding: 2px;
+  border: 2px solid #fff;
+}
+
+.deleteButton:focus-visible {
+  border: 2px solid #000000;
+}
+
+.delete {
+  display: inline;
+  width: 10px;
+}
+
+.delete line {
+  display: inline;
+  stroke: red;
+  stroke-width: 20px;
+}

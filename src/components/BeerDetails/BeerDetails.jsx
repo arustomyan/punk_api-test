@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getBeer } from "../../api/PunkApi";
 import { useFetching } from "../../hooks/useFetching";
-import Loader from "../Loader/Loader";
+import Loader from "../shared/Loader/Loader";
 import styles from "./BeerDetails.module.css";
 
 function BeerDetails() {
