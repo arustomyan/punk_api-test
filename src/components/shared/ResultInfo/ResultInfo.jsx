@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ResultInfo.module.css";
 
+// решение с кнопкой удалить и обновлением страницы странное
+// если сделаешь провайдер для поиска, как я писал раньше - то просто обнулять значение для поиска можно
+
 function ResultInfo({ isFound, query }) {
   if (!query) return null;
 

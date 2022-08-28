@@ -5,24 +5,21 @@ import style from "./BeerCard.module.css";
 
 function BeerCard({ item }) {
   return (
-    <li className={style.component} title={item.name}>
-      <Link to={`/beer/${item.id}`} className={style.link}>
-        <div className={style.imageWrapper}>
-          {!item.image_url ? (
-            <p>cover missing</p>
-          ) : (
-            <img
-              className={style.image}
-              src={item.image_url}
-              alt={`Cover of ${item.name}`}
-            />
-          )}
-        </div>
-
-        <h2 className={style.name}>{item.name}</h2>
-        <p className={style.description}>{limitStr(item.description)}</p>
-      </Link>
-    </li>
+    <Link to={`/beer/${item.id}`} className={style.link}>
+      <div className={style.imageWrapper}>
+        {!item.image_url ? (
+          <p>cover missing</p>
+        ) : (
+          <img
+            className={style.image}
+            src={item.image_url}
+            alt={`Cover of ${item.name}`}
+          />
+        )}
+      </div>
+      <h2 className={style.name}>{item.name}</h2>
+      <p className={style.description}>{limitStr(item.description)}</p>
+    </Link>
   );
 }
 

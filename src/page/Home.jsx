@@ -2,8 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "../components/Search";
 import { BeerList } from "../components/BeerList";
-import { getBeers, searchBeer } from "../api/PunkApi";
+import { getBeers, searchBeer } from "../services/punkService";
 import { useFetching } from "../hooks/useFetching";
+
+// можешь хук и провайдер для поиска сделать, из него возвращать только query и функции для изменения, где нужно
+// а то текст запроса пропадает
+
+// Так много стейта, попробуй useReducer использовать. Логика будет инкапсулирована
+// Еще задваиваются значения в beers,  в консоли ошибки
+// на поиск можно еще debounce хук сделать, чтобы при каждом нажатии запрос не шел на сервер
 
 function Home() {
   const [beers, setBeers] = useState([]);

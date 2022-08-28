@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getBeer } from "../../api/PunkApi";
+import { getBeer } from "../../services/punkService";
 import { useFetching } from "../../hooks/useFetching";
 import Loader from "../shared/Loader/Loader";
 import styles from "./BeerDetails.module.css";
+
+// Ну тут тоже что-то со стейтом надо сделать, по факту у тебя возвращается уже с запроса необходимая инфо
+// если переделать хук useFetching, или вообще новый сделать, чтобы сразу возвращалась необходимые данные. Тогда и лишний стейт не нужен будет
 
 function BeerDetails() {
   const [beer, setBeer] = useState({});
